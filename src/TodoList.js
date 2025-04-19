@@ -83,12 +83,6 @@ export function TodoList() {
   const pendingCount = todos.filter(todo => !todo.completed).length;
   const completedCount = todos.length - pendingCount;
 
-  // Clear localStorage to force default todos to load again (for debugging)
-  const forceResetTodos = () => {
-    localStorage.removeItem("todos");
-    window.location.reload();
-  };
-
   return (
     <div className="card">
       <div className="card-header">
@@ -191,16 +185,6 @@ export function TodoList() {
             )}
           </div>
         )}
-        
-        {/* Hidden debug button - only use during development */}
-        {/*
-        <button 
-          onClick={forceResetTodos} 
-          style={{marginTop: '20px', fontSize: '12px', opacity: 0.6}}
-        >
-          Reset All Todos
-        </button>
-        */}
       </div>
     </div>
   );
